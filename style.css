@@ -8,18 +8,18 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif !important;
+  font-family: 'Tarek', 'Tajawal', sans-serif !important;
 }
 
 body {
-  font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif !important;
+  font-family: 'Tarek', 'Tajawal', sans-serif !important;
   background-color: #000000;
   color: #FDF5E6;
   overflow-x: hidden;
 }
 
 [data-serif] {
-  font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif !important;
+  font-family: 'Tarek', 'Tajawal', sans-serif !important;
 }
 
 #canvas-container {
@@ -219,7 +219,7 @@ body {
 }
 
 .nav-logo-ar {
-  font-family: 'Noto Kufi Arabic', 'Tajawal', sans-serif !important;
+  font-family: 'Tarek', 'Tajawal', sans-serif !important;
   font-size: 1.3rem;
   font-weight: 800;
   color: #FF8243;
@@ -434,11 +434,6 @@ body {
   0%, 100% { r: 28px; opacity: 0.05; }
   50% { r: 40px; opacity: 0.12; }
 }
-
-/* REMOVED: ropeSway CSS animation — was causing a white line in the middle.
-   Rope is now controlled entirely by JavaScript. */
-
-/* ===== Climber CSS animation REMOVED — JS controls position via scroll ===== */
 
 .hold-small {
   animation: smallHoldTwinkle 4s ease-in-out infinite;
@@ -1094,7 +1089,7 @@ footer p {
     display: flex;
   }
 
-  /* Hero content: left padding to avoid climber overlap, right for panel */
+  /* Hero content */
   #hero-content {
     padding: 0 110px 0 120px;
   }
