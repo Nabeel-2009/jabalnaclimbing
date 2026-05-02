@@ -220,18 +220,12 @@ const observer = new IntersectionObserver((entries) => {
     );
     climberFigure.style.opacity = fadeOut;
 
-    // Update rope: anchor at top (fixed), rope hangs DOWN to climber's harness
-    // Climber harness is near top of figure → svgY - 10 in SVG space after transform
-    const climberHarnessY = svgY + offsetY + breathY - 10;
-    // Actually the harness is at the figure's drawn position (152, 632) offset by transform
-    // Rope end = figure center Y (svgY) + small offset for harness position
-    const ropeEndY = svgY - 18 + breathY; // rope attaches near climber harness (shorter)
+    const ropeEndY = svgY - 18 + breathY;
     const ropeEndX = 152 + swayX;
 
     if (ropePath) {
       const sway1 = Math.sin(ropeTime) * 4;
       const sway2 = Math.sin(ropeTime + 1.5) * 3;
-      // Control points for natural rope sag between anchor (top) and climber
       const mid1Y = ROPE_ANCHOR_Y + (ropeEndY - ROPE_ANCHOR_Y) * 0.33;
       const mid2Y = ROPE_ANCHOR_Y + (ropeEndY - ROPE_ANCHOR_Y) * 0.66;
       const ds = `M${ROPE_ANCHOR_X},${ROPE_ANCHOR_Y} C${ROPE_ANCHOR_X + sway1 * 2},${mid1Y} ${ropeEndX - sway2 * 2},${mid2Y} ${ropeEndX + sway1},${ropeEndY}`;
@@ -280,13 +274,10 @@ const observer = new IntersectionObserver((entries) => {
   const mRopePath      = document.getElementById('m-rope-path');
   const mRopePathGlow  = document.getElementById('m-rope-path-glow');
 
-  // Mobile SVG viewBox: 390×844
-  // Climber harness is drawn at (56, 464) in the SVG
   const M_HARNESS_DRAWN_Y = 464;
   const M_ROPE_ANCHOR_X   = 56;
   const M_ROPE_ANCHOR_Y   = 48;
 
-  // Where harness should be at scroll=0 (bottom) and scroll=1 (top)
   const M_START_HARNESS_Y = 720;
   const M_END_HARNESS_Y   = 110;
 
@@ -298,23 +289,17 @@ const observer = new IntersectionObserver((entries) => {
     const heroH   = window.innerHeight;
     const scrollP = Math.min(window.scrollY / heroH, 1);
 
-    // Target harness Y in SVG space
     const harnessY = M_START_HARNESS_Y - (M_START_HARNESS_Y - M_END_HARNESS_Y) * scrollP;
-
-    // Offset = how much to shift the drawn figure
     const offsetY = harnessY - M_HARNESS_DRAWN_Y;
 
-    // Subtle breathing sway
     const breathY = Math.sin(mRopeTime * 2) * 1.8;
     const swayX   = Math.sin(mRopeTime * 0.8) * 1.2;
 
-    // Fade out near end of hero
     const fadeOut = scrollP > 0.85 ? 1 - (scrollP - 0.85) / 0.15 : 1;
 
     mobileClimber.setAttribute('transform', `translate(${swayX}, ${offsetY + breathY})`);
     mobileClimber.style.opacity = fadeOut;
 
-    // Update rope: anchor at top, end at climber harness
     const ropeEndX = M_ROPE_ANCHOR_X + swayX;
     const ropeEndY = harnessY + breathY;
     const midY     = M_ROPE_ANCHOR_Y + (ropeEndY - M_ROPE_ANCHOR_Y) * 0.5;
