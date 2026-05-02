@@ -5,10 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>جبلنا للتسلق - Jabalna Climbing</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- SEO -->
+  <meta name="description" content="تسلق، تدرب، ارقَ إلى القمة. لجميع الأعمار والمستويات." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="أول صالة تسلق داخلية في سوريا — دمشق" />
+  <meta property="og:description" content="تسلق، تدرب، ارقَ إلى القمة. لجميع الأعمار والمستويات." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO/" />
+  <meta property="og:site_name" content="جبلنا للتسلق" />
+  <meta property="og:locale" content="ar_SY" />
+
+  <!-- Twitter / WhatsApp -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="أول صالة تسلق داخلية في سوريا — دمشق" />
+  <meta name="twitter:description" content="تسلق، تدرب، ارقَ إلى القمة. لجميع الأعمار والمستويات." />
+  <meta name="twitter:image" content="logo.png" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Tarek&family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
@@ -431,18 +452,13 @@
       <rect width="390" height="844" fill="url(#mbgGrad)"/>
 
       <!-- ══ LEFT WALL PANEL — wide, dramatic ══ -->
-      <!-- Main fill: 0–108px at bottom, 0–88px at top -->
       <polygon points="0,844 108,844 88,0 0,0" fill="url(#mPanelL)" opacity="0.97"/>
       <polygon points="0,844 108,844 88,0 0,0" fill="url(#mGrid)"/>
       <polygon points="0,844 108,844 88,0 0,0" fill="url(#mCracks)" opacity="0.85"/>
-      <!-- Inner accent wash near right edge -->
       <polygon points="60,844 108,844 88,0 48,0" fill="url(#mAccL)"/>
-      <!-- Right edge glowing line -->
       <line x1="108" y1="844" x2="88" y2="0" stroke="#FF8243" stroke-width="2" stroke-opacity="0.45" filter="url(#mEdgeGlow)"/>
       <line x1="108" y1="844" x2="88" y2="0" stroke="#FF8243" stroke-width="0.7" stroke-opacity="0.9"/>
-      <!-- Depth shadow -->
       <polygon points="108,844 124,844 104,0 88,0" fill="#000" opacity="0.42"/>
-      <!-- Structural horizontal lines — left panel -->
       <g opacity="0.18" stroke="#FF8243" stroke-width="0.8">
         <line x1="0" y1="160" x2="102" y2="145"/>
         <line x1="0" y1="320" x2="102" y2="302"/>
@@ -450,25 +466,19 @@
         <line x1="0" y1="640" x2="102" y2="616"/>
         <line x1="0" y1="780" x2="102" y2="754"/>
       </g>
-      <!-- Small bolt details on left panel -->
       <circle cx="20" cy="200" r="2.5" fill="#666" opacity="0.5"/>
       <circle cx="65" cy="380" r="2.5" fill="#666" opacity="0.5"/>
       <circle cx="25" cy="560" r="2.5" fill="#666" opacity="0.45"/>
       <circle cx="72" cy="700" r="2.5" fill="#666" opacity="0.4"/>
 
       <!-- ══ RIGHT WALL PANEL — wide, dramatic ══ -->
-      <!-- Main fill: 282–390px at bottom, 302–390px at top -->
       <polygon points="282,844 390,844 390,0 302,0" fill="url(#mPanelR)" opacity="0.93"/>
       <polygon points="282,844 390,844 390,0 302,0" fill="url(#mGrid)"/>
       <polygon points="282,844 390,844 390,0 302,0" fill="url(#mCracks)" opacity="0.75"/>
-      <!-- Inner accent wash near left edge -->
       <polygon points="282,844 330,844 350,0 302,0" fill="url(#mAccR)"/>
-      <!-- Left edge glowing line -->
       <line x1="282" y1="844" x2="302" y2="0" stroke="#FF8243" stroke-width="1.6" stroke-opacity="0.38" filter="url(#mEdgeGlow)"/>
       <line x1="282" y1="844" x2="302" y2="0" stroke="#FF8243" stroke-width="0.6" stroke-opacity="0.75"/>
-      <!-- Depth shadow on right panel -->
       <polygon points="266,844 282,844 302,0 286,0" fill="#000" opacity="0.38"/>
-      <!-- Structural horizontal lines — right panel -->
       <g opacity="0.15" stroke="#FF8243" stroke-width="0.8">
         <line x1="288" y1="160" x2="390" y2="148"/>
         <line x1="288" y1="320" x2="390" y2="305"/>
@@ -476,7 +486,6 @@
         <line x1="288" y1="640" x2="390" y2="620"/>
         <line x1="288" y1="780" x2="390" y2="758"/>
       </g>
-      <!-- Small bolt details on right panel -->
       <circle cx="370" cy="200" r="2.5" fill="#666" opacity="0.5"/>
       <circle cx="325" cy="380" r="2.5" fill="#666" opacity="0.5"/>
       <circle cx="365" cy="560" r="2.5" fill="#666" opacity="0.45"/>
@@ -485,10 +494,8 @@
       <!-- TOP OVERHANG BAR — full width -->
       <polygon points="0,0 390,0 390,44 0,58" fill="#090200" opacity="0.98"/>
       <line x1="0" y1="58" x2="390" y2="44" stroke="#FF8243" stroke-width="2.2" stroke-opacity="0.55"/>
-      <!-- Subtle second line for depth -->
       <line x1="0" y1="61" x2="390" y2="47" stroke="#FF8243" stroke-width="0.6" stroke-opacity="0.15"/>
 
-      <!-- Anchor bolt — top of left rope -->
       <circle cx="56" cy="52" r="6" fill="#888" opacity="0.85"/>
       <circle cx="54" cy="52" r="3" fill="#CCCCCC" opacity="0.7"/>
       <rect x="44" y="45" width="22" height="8" rx="3" fill="#666" opacity="0.8"/>
@@ -507,45 +514,34 @@
 
       <!-- ══ MOBILE CLIMBER FIGURE — positioned on left rope ══ -->
       <g id="mobile-climber" opacity="0.92">
-        <!-- Shadow -->
         <ellipse cx="72" cy="490" rx="18" ry="5" fill="#000" opacity="0.2"/>
-        <!-- Helmet -->
         <ellipse cx="56" cy="415" rx="13" ry="9" fill="#FF8243"/>
         <rect x="43" y="420" width="26" height="6" rx="3" fill="#CC5500"/>
-        <!-- Head -->
         <circle cx="56" cy="431" r="11" fill="#F0C090"/>
         <ellipse cx="52" cy="428" rx="2" ry="1.8" fill="#3A2010"/>
         <ellipse cx="60" cy="428" rx="2" ry="1.8" fill="#3A2010"/>
-        <!-- Torso -->
         <path d="M44,441 Q48,438 56,437 Q64,438 68,441 L69,465 Q63,468 56,469 Q49,468 43,465 Z" fill="#1E0800"/>
-        <!-- Harness -->
         <path d="M44,447 L39,461 L73,461 L68,447" stroke="#FF8243" stroke-width="2.5" fill="none" stroke-linecap="round"/>
         <line x1="56" y1="447" x2="56" y2="461" stroke="#FF8243" stroke-width="1.8" stroke-linecap="round"/>
         <ellipse cx="56" cy="464" rx="6" ry="4" fill="#888" opacity="0.9"/>
         <ellipse cx="56" cy="464" rx="3.5" ry="2.5" fill="#555"/>
-        <!-- Rope connection -->
         <line x1="56" y1="458" x2="56" y2="462" stroke="#E8D5C0" stroke-width="2"/>
-        <!-- LEFT ARM reaching up to hold -->
         <line x1="44" y1="446" x2="28" y2="428" stroke="#F0C090" stroke-width="6" stroke-linecap="round"/>
         <line x1="28" y1="428" x2="18" y2="418" stroke="#F0C090" stroke-width="5" stroke-linecap="round"/>
         <circle cx="17" cy="416" r="5.5" fill="#F0C090"/>
-        <!-- RIGHT ARM -->
         <line x1="68" y1="446" x2="84" y2="438" stroke="#F0C090" stroke-width="6" stroke-linecap="round"/>
         <line x1="84" y1="438" x2="94" y2="432" stroke="#F0C090" stroke-width="5" stroke-linecap="round"/>
         <circle cx="95" cy="430" r="5" fill="#F0C090"/>
-        <!-- LEFT LEG -->
         <line x1="48" y1="468" x2="34" y2="495" stroke="#1E0800" stroke-width="7" stroke-linecap="round"/>
         <ellipse cx="31" cy="498" rx="10" ry="5" fill="#222" transform="rotate(-20,31,498)"/>
         <ellipse cx="29" cy="496" rx="4" ry="2.5" fill="#FF8243" opacity="0.7" transform="rotate(-20,29,496)"/>
-        <!-- RIGHT LEG -->
         <line x1="64" y1="468" x2="76" y2="492" stroke="#1E0800" stroke-width="7" stroke-linecap="round"/>
         <ellipse cx="79" cy="496" rx="10" ry="5" fill="#222" transform="rotate(20,79,496)"/>
         <ellipse cx="81" cy="494" rx="4" ry="2.5" fill="#FF8243" opacity="0.7" transform="rotate(20,81,494)"/>
-        <!-- Chalk bag -->
         <ellipse cx="70" cy="452" rx="7" ry="5.5" fill="#EEE8DC" opacity="0.35"/>
       </g>
 
-      <!-- ══ LEFT PANEL HOLDS — orange route, generous & well-spaced ══ -->
+      <!-- ══ LEFT PANEL HOLDS ══ -->
       <g>
         <ellipse cx="85" cy="788" rx="14" ry="9" fill="#0d0400" opacity="0.7"/>
         <ellipse cx="83" cy="786" rx="12" ry="7" fill="#FF8243" filter="url(#mHoldGlow)"/>
@@ -595,7 +591,7 @@
         <ellipse cx="28" cy="66" rx="10" ry="6" fill="#CC5500" filter="url(#mHoldGlow)"/>
       </g>
 
-      <!-- ══ RIGHT PANEL HOLDS — crimson route ══ -->
+      <!-- ══ RIGHT PANEL HOLDS ══ -->
       <g>
         <ellipse cx="305" cy="795" rx="13" ry="8" fill="#0d0000" opacity="0.7"/>
         <ellipse cx="303" cy="793" rx="11" ry="7" fill="#A31919" filter="url(#mHoldGlow)"/>
@@ -644,13 +640,11 @@
         <ellipse cx="360" cy="66" rx="11" ry="6" fill="#B82020" filter="url(#mHoldGlow)"/>
       </g>
 
-      <!-- Glow halos for hero holds -->
       <circle cx="88" cy="636" r="24" fill="#FF8243" opacity="0.06" class="hold-pulse"/>
       <circle cx="86" cy="293" r="22" fill="#FF8243" opacity="0.06" class="hold-pulse"/>
       <circle cx="298" cy="636" r="23" fill="#C41E1E" opacity="0.07" class="hold-pulse"/>
       <circle cx="300" cy="288" r="22" fill="#C41E1E" opacity="0.06" class="hold-pulse"/>
 
-      <!-- VIGNETTE + CENTER PROTECTION -->
       <rect width="390" height="844" fill="url(#mVignette)"/>
       <rect width="390" height="844" fill="url(#mCenterDark)"/>
     </svg>
@@ -768,7 +762,6 @@
       <div class="contact-card"><div class="contact-icon">📞</div><div><div class="contact-label">الهاتف</div><div>+963 11 XXX XXXX</div></div></div>
     </div>
   </div>
-  
 </section>
 
 <footer>
