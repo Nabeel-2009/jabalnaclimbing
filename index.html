@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>جبلنا للتسلق - Jabalna Climbing</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="canvas-container"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-top-strip">
+    <span>أول صالة تسلق داخلية في سوريا</span>
+    <span>|</span>
+    <span>دمشق، سوريا</span>
+  </div>
+  <div class="nav-main-row">
+    <ul class="nav-links nav-links-left">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#gym-section">من نحن</a></li>
+      <li><a href="#timeline-section">قصتنا</a></li>
+    </ul>
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="شعار جبلنا" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+      <div class="nav-logo-fallback">
+        <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#FF8243" stroke-width="2">
+          <polygon points="12,2 2,20 22,20" fill="rgba(255,130,67,0.9)" stroke="none"/>
+          <polygon points="12,2 9,8 15,8" fill="#000" stroke="none"/>
+        </svg>
+      </div>
+      <div class="nav-logo-text">
+        <span class="nav-logo-ar">جبلنا</span>
+        <span class="nav-logo-en">Jabalna Climbing</span>
+      </div>
+    </a>
+    <ul class="nav-links nav-links-right">
+      <li><a href="#pricing-section">الأسعار</a></li>
+      <li><a href="#hours-section">أوقات العمل</a></li>
+    </ul>
+    <button id="nav-hamburger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div id="nav-mobile">
+  <a href="#hero">الرئيسية</a>
+  <a href="#gym-section">من نحن</a>
+  <a href="#pricing-section">الأسعار</a>
+  <a href="#hours-section">أوقات العمل</a>
+  <a href="#timeline-section">قصتنا</a>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress-container">
+  <div id="rope-track"><div id="rope-fill"></div></div>
+  <div id="rope-climber">   
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+    <path d="M13 14L17 9L22 18H2.84444C2.46441 18 2.2233 17.5928 2.40603 17.2596L10.0509 3.31896C10.2429 2.96885 10.7476 2.97394 10.9325 3.32786L15.122 11.3476" stroke="#FF8243" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>  
+</div>
+
+
+<!-- HERO -->
+<section id="hero">
+
+  <!-- ===== DESKTOP Wall Scene ===== -->
+  <div id="hero-wall-scene" class="wall-desktop">
+    <svg id="climbing-wall-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#080001;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#130300;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="panelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#1c0900;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#0c0400;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="panelGradR" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#1a0800;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#0a0300;stop-opacity:1" />
+        </linearGradient>
+        <filter id="holdGlow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="3.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="holdGlowBright" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="7" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="ropeGlow">
+          <feGaussianBlur stdDeviation="2.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" style="stop-color:#000000;stop-opacity:0" />
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:0.88" />
+        </radialGradient>
+        <radialGradient id="centerDarken" cx="50%" cy="45%" r="35%">
+          <stop offset="0%" style="stop-color:#000000;stop-opacity:0.55" />
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+        </radialGradient>
+        <pattern id="wallGrid" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+          <rect width="100" height="100" fill="none"/>
+          <line x1="0" y1="0" x2="100" y2="0" stroke="#FF8243" stroke-width="0.4" stroke-opacity="0.1"/>
+          <line x1="0" y1="50" x2="100" y2="50" stroke="#FF8243" stroke-width="0.2" stroke-opacity="0.06"/>
+          <line x1="0" y1="100" x2="100" y2="100" stroke="#FF8243" stroke-width="0.4" stroke-opacity="0.1"/>
+          <line x1="0" y1="0" x2="0" y2="100" stroke="#FF8243" stroke-width="0.4" stroke-opacity="0.1"/>
+          <line x1="50" y1="0" x2="50" y2="100" stroke="#FF8243" stroke-width="0.2" stroke-opacity="0.06"/>
+          <line x1="100" y1="0" x2="100" y2="100" stroke="#FF8243" stroke-width="0.4" stroke-opacity="0.1"/>
+        </pattern>
+        <pattern id="cracks" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
+          <path d="M30,0 L40,60 L25,120 L50,200" stroke="#FF8243" stroke-width="0.5" stroke-opacity="0.07" fill="none"/>
+          <path d="M200,20 L185,90 L210,160 L190,250" stroke="#FF8243" stroke-width="0.4" stroke-opacity="0.05" fill="none"/>
+          <path d="M350,80 L340,150 L360,220" stroke="#FF8243" stroke-width="0.5" stroke-opacity="0.06" fill="none"/>
+          <path d="M100,280 L120,350 L95,400" stroke="#A31919" stroke-width="0.4" stroke-opacity="0.07" fill="none"/>
+          <path d="M300,300 L280,360 L310,400" stroke="#A31919" stroke-width="0.3" stroke-opacity="0.05" fill="none"/>
+        </pattern>
+      </defs>
+
+      <!-- SKY BACKGROUND -->
+      <rect width="1440" height="900" fill="url(#bgGrad)"/>
+
+      <!-- LEFT WALL PANEL — pulled closer to center (was 280/340, now 220/270) -->
+      <polygon points="0,900 220,900 270,0 0,0" fill="url(#panelGrad)" opacity="0.95"/>
+      <polygon points="0,900 220,900 270,0 0,0" fill="url(#wallGrid)"/>
+      <polygon points="0,900 220,900 270,0 0,0" fill="url(#cracks)" opacity="0.8"/>
+      <!-- Left panel right edge -->
+      <line x1="220" y1="900" x2="270" y2="0" stroke="#FF8243" stroke-width="2" stroke-opacity="0.3"/>
+      <!-- Left panel inner shadow -->
+      <polygon points="220,900 255,900 305,0 270,0" fill="#000" opacity="0.3"/>
+
+      <!-- RIGHT WALL PANEL — pulled closer to center (was 1100/1160, now 1170/1220) -->
+      <polygon points="1170,900 1440,900 1440,0 1220,0" fill="url(#panelGradR)" opacity="0.9"/>
+      <polygon points="1170,900 1440,900 1440,0 1220,0" fill="url(#wallGrid)"/>
+      <polygon points="1170,900 1440,900 1440,0 1220,0" fill="url(#cracks)" opacity="0.7"/>
+      <!-- Right panel left edge -->
+      <line x1="1170" y1="900" x2="1220" y2="0" stroke="#FF8243" stroke-width="1.5" stroke-opacity="0.25"/>
+
+      <!-- THIN SIDE STRIPS -->
+      <polygon points="0,900 60,900 80,0 0,0" fill="#FF8243" opacity="0.03"/>
+      <polygon points="1380,900 1440,900 1440,0 1400,0" fill="#FF8243" opacity="0.025"/>
+
+      <!-- OVERHANG TOP -->
+      <polygon points="0,0 1440,0 1440,55 0,72" fill="#0a0200" opacity="0.95"/>
+      <line x1="0" y1="72" x2="1440" y2="55" stroke="#FF8243" stroke-width="2.5" stroke-opacity="0.45"/>
+      <!-- Anchor bolts -->
+      <circle cx="160" cy="62" r="4" fill="#888" opacity="0.7"/>
+      <circle cx="157" cy="62" r="2" fill="#CCC" opacity="0.5"/>
+      <circle cx="1280" cy="55" r="4" fill="#888" opacity="0.7"/>
+      <circle cx="1277" cy="55" r="2" fill="#CCC" opacity="0.5"/>
+
+      <!-- STRUCTURAL HORIZONTAL LINES -->
+      <g opacity="0.12" stroke="#FF8243" stroke-width="0.8">
+        <line x1="0" y1="200" x2="280" y2="185"/>
+        <line x1="0" y1="400" x2="280" y2="378"/>
+        <line x1="0" y1="600" x2="280" y2="570"/>
+        <line x1="0" y1="800" x2="280" y2="768"/>
+        <line x1="1160" y1="200" x2="1440" y2="190"/>
+        <line x1="1160" y1="400" x2="1440" y2="382"/>
+        <line x1="1160" y1="600" x2="1440" y2="578"/>
+        <line x1="1160" y1="800" x2="1440" y2="778"/>
+      </g>
+
+      <!-- LEFT ROPE -->
+      <g id="rope-hero" filter="url(#ropeGlow)">
+        <path id="rope-path" 
+              d="M158,65 C156,180 162,300 158,420 C154,540 160,660 157,780 C155,840 158,880 157,910" 
+              stroke="#E8D5C0" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+        <path id="rope-path-glow"
+              d="M158,65 C156,180 162,300 158,420 C154,540 160,660 157,780 C155,840 158,880 157,910" 
+              stroke="#FF8243" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.35"/>
+        <!-- Top anchor -->
+        <circle cx="160" cy="62" r="7" fill="#A31919" opacity="0.9"/>
+        <circle cx="160" cy="62" r="3.5" fill="#FF8243"/>
+        <rect x="148" y="56" width="24" height="8" rx="3" fill="#777" opacity="0.8"/>
+      </g>
+
+      <!-- CLIMBER FIGURE -->
+      <g id="climber-figure">
+        <ellipse cx="170" cy="650" rx="28" ry="8" fill="#000" opacity="0.25"/>
+        <!-- Helmet -->
+        <ellipse cx="152" cy="570" rx="16" ry="11" fill="#FF8243"/>
+        <rect x="136" y="576" width="32" height="7" rx="3.5" fill="#CC5500"/>
+        <path d="M136,579 Q130,590 135,595" stroke="#CC5500" stroke-width="2" fill="none"/>
+        <path d="M168,579 Q174,590 169,595" stroke="#CC5500" stroke-width="2" fill="none"/>
+        <!-- Head / Face -->
+        <circle cx="152" cy="592" r="13" fill="#F0C090"/>
+        <ellipse cx="148" cy="589" rx="2.5" ry="2" fill="#3A2010"/>
+        <ellipse cx="157" cy="589" rx="2.5" ry="2" fill="#3A2010"/>
+        <circle cx="149" cy="588" r="0.8" fill="#FFF" opacity="0.8"/>
+        <circle cx="158" cy="588" r="0.8" fill="#FFF" opacity="0.8"/>
+        <!-- Torso / Shirt -->
+        <path d="M138,604 Q142,600 152,598 Q162,600 166,604 L168,635 Q162,638 152,639 Q142,638 136,635 Z" fill="#1E0800"/>
+        <!-- Harness -->
+        <path d="M138,610 L132,628 L172,628 L166,610" stroke="#FF8243" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <line x1="152" y1="610" x2="152" y2="628" stroke="#FF8243" stroke-width="2" stroke-linecap="round"/>
+        <ellipse cx="152" cy="632" rx="7" ry="5" fill="#888" opacity="0.9"/>
+        <ellipse cx="152" cy="632" rx="4" ry="3" fill="#555"/>
+        <line x1="152" y1="625" x2="152" y2="628" stroke="#E8D5C0" stroke-width="2.5"/>
+        <!-- LEFT ARM -->
+        <line x1="138" y1="608" x2="120" y2="585" stroke="#F0C090" stroke-width="7" stroke-linecap="round"/>
+        <line x1="120" y1="585" x2="108" y2="568" stroke="#F0C090" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="106" cy="566" r="7" fill="#F0C090"/>
+        <path d="M100,563 Q106,558 112,563" stroke="#D4A070" stroke-width="1.5" fill="none"/>
+        <!-- RIGHT ARM -->
+        <line x1="166" y1="608" x2="188" y2="595" stroke="#F0C090" stroke-width="7" stroke-linecap="round"/>
+        <line x1="188" y1="595" x2="200" y2="588" stroke="#F0C090" stroke-width="6" stroke-linecap="round"/>
+        <circle cx="202" cy="587" r="6" fill="#F0C090"/>
+        <!-- LEFT LEG -->
+        <line x1="142" y1="638" x2="125" y2="672" stroke="#1E0800" stroke-width="8" stroke-linecap="round"/>
+        <ellipse cx="122" cy="676" rx="12" ry="6" fill="#222" transform="rotate(-20,122,676)"/>
+        <ellipse cx="119" cy="674" rx="5" ry="3" fill="#FF8243" opacity="0.7" transform="rotate(-20,119,674)"/>
+        <!-- RIGHT LEG -->
+        <line x1="162" y1="638" x2="178" y2="668" stroke="#1E0800" stroke-width="8" stroke-linecap="round"/>
+        <ellipse cx="181" cy="672" rx="12" ry="6" fill="#222" transform="rotate(20,181,672)"/>
+        <ellipse cx="184" cy="670" rx="5" ry="3" fill="#FF8243" opacity="0.7" transform="rotate(20,184,670)"/>
+        <!-- Chalk bag -->
+        <ellipse cx="168" cy="620" rx="9" ry="7" fill="#EEE8DC" opacity="0.4"/>
+        <ellipse cx="168" cy="618" rx="6" ry="4" fill="#DDD5C5" opacity="0.3"/>
+      </g>
+
+      <!-- LEFT WALL HOLDS -->
+      <g class="hold hold-active">
+        <ellipse cx="104" cy="564" rx="14" ry="9" fill="#0d0400" opacity="0.7"/>
+        <ellipse cx="102" cy="562" rx="12" ry="7" fill="#FF8243" filter="url(#holdGlowBright)"/>
+        <ellipse cx="99" cy="559" rx="5" ry="3" fill="#FFCB99" opacity="0.8"/>
+      </g>
+      <g class="hold hold-active">
+        <ellipse cx="202" cy="585" rx="13" ry="8" fill="#0d0400" opacity="0.7"/>
+        <ellipse cx="200" cy="583" rx="11" ry="7" fill="#CC5500" filter="url(#holdGlow)"/>
+        <ellipse cx="197" cy="580" rx="4" ry="3" fill="#FFB870" opacity="0.7"/>
+      </g>
+      <g class="hold hold-foot">
+        <ellipse cx="184" cy="668" rx="13" ry="8" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="182" cy="666" rx="11" ry="7" fill="#FF7B20" filter="url(#holdGlow)"/>
+        <ellipse cx="179" cy="663" rx="4" ry="3" fill="#FFB870" opacity="0.6"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="90" cy="780" rx="15" ry="10" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="88" cy="778" rx="13" ry="8" fill="#FF8243" filter="url(#holdGlow)"/>
+        <ellipse cx="85" cy="775" rx="5" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="195" cy="730" rx="14" ry="9" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="193" cy="728" rx="12" ry="7" fill="#FF7B20" filter="url(#holdGlow)"/>
+        <ellipse cx="190" cy="725" rx="5" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="80" cy="680" rx="13" ry="8" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="78" cy="678" rx="11" ry="7" fill="#FF8243" filter="url(#holdGlow)"/>
+        <ellipse cx="75" cy="675" rx="4" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="210" cy="490" rx="14" ry="9" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="208" cy="488" rx="12" ry="7" fill="#FF8243" filter="url(#holdGlow)"/>
+        <ellipse cx="205" cy="485" rx="5" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="85" cy="430" rx="15" ry="10" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="83" cy="428" rx="13" ry="8" fill="#FF7B20" filter="url(#holdGlow)"/>
+        <ellipse cx="80" cy="425" rx="5" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+      <g class="hold hold-orange hold-bright">
+        <ellipse cx="195" cy="355" rx="16" ry="10" fill="#0d0400" opacity="0.7"/>
+        <ellipse cx="193" cy="353" rx="14" ry="9" fill="#FF8243" filter="url(#holdGlowBright)"/>
+        <ellipse cx="190" cy="349" rx="6" ry="3" fill="#FFCB99" opacity="0.8"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="75" cy="270" rx="14" ry="9" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="73" cy="268" rx="12" ry="7" fill="#FF8243" filter="url(#holdGlow)"/>
+        <ellipse cx="70" cy="265" rx="5" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="215" cy="200" rx="13" ry="8" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="213" cy="198" rx="11" ry="7" fill="#FF7B20" filter="url(#holdGlow)"/>
+        <ellipse cx="210" cy="195" rx="4" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+      <g class="hold hold-orange">
+        <ellipse cx="100" cy="130" rx="15" ry="9" fill="#0d0400" opacity="0.6"/>
+        <ellipse cx="98" cy="128" rx="13" ry="8" fill="#FF8243" filter="url(#holdGlow)"/>
+        <ellipse cx="95" cy="125" rx="5" ry="3" fill="#FFB870" opacity="0.5"/>
+      </g>
+
+      <!-- RIGHT WALL HOLDS — shifted to match new right panel position -->
+      <g class="hold hold-red">
+        <ellipse cx="1250" cy="820" rx="16" ry="10" fill="#0d0000" opacity="0.6"/>
+        <ellipse cx="1248" cy="818" rx="14" ry="9" fill="#A31919" filter="url(#holdGlow)"/>
+        <ellipse cx="1245" cy="814" rx="6" ry="3" fill="#FF8888" opacity="0.5"/>
+      </g>
+      <g class="hold hold-red">
+        <ellipse cx="1380" cy="740" rx="15" ry="9" fill="#0d0000" opacity="0.6"/>
+        <ellipse cx="1378" cy="738" rx="13" ry="8" fill="#B82020" filter="url(#holdGlow)"/>
+        <ellipse cx="1375" cy="735" rx="5" ry="3" fill="#FF8888" opacity="0.5"/>
+      </g>
+      <g class="hold hold-red">
+        <ellipse cx="1260" cy="640" rx="14" ry="9" fill="#0d0000" opacity="0.6"/>
+        <ellipse cx="1258" cy="638" rx="12" ry="7" fill="#A31919" filter="url(#holdGlow)"/>
+        <ellipse cx="1255" cy="635" rx="5" ry="3" fill="#FF8888" opacity="0.5"/>
+      </g>
+      <g class="hold hold-red hold-bright">
+        <ellipse cx="1400" cy="520" rx="17" ry="11" fill="#0d0000" opacity="0.7"/>
+        <ellipse cx="1398" cy="518" rx="15" ry="9" fill="#C41E1E" filter="url(#holdGlowBright)"/>
+        <ellipse cx="1395" cy="514" rx="6" ry="4" fill="#FF9999" opacity="0.7"/>
+      </g>
+      <g class="hold hold-red">
+        <ellipse cx="1270" cy="410" rx="14" ry="9" fill="#0d0000" opacity="0.6"/>
+        <ellipse cx="1268" cy="408" rx="12" ry="7" fill="#A31919" filter="url(#holdGlow)"/>
+        <ellipse cx="1265" cy="405" rx="5" ry="3" fill="#FF8888" opacity="0.5"/>
+      </g>
+      <g class="hold hold-red">
+        <ellipse cx="1410" cy="310" rx="15" ry="9" fill="#0d0000" opacity="0.6"/>
+        <ellipse cx="1408" cy="308" rx="13" ry="8" fill="#B82020" filter="url(#holdGlow)"/>
+        <ellipse cx="1405" cy="305" rx="5" ry="3" fill="#FF8888" opacity="0.5"/>
+      </g>
+      <g class="hold hold-red">
+        <ellipse cx="1280" cy="200" rx="13" ry="8" fill="#0d0000" opacity="0.6"/>
+        <ellipse cx="1278" cy="198" rx="11" ry="7" fill="#A31919" filter="url(#holdGlow)"/>
+        <ellipse cx="1275" cy="195" rx="4" ry="3" fill="#FF8888" opacity="0.5"/>
+      </g>
+      <g class="hold hold-red">
+        <ellipse cx="1420" cy="120" rx="14" ry="9" fill="#0d0000" opacity="0.6"/>
+        <ellipse cx="1418" cy="118" rx="12" ry="7" fill="#B82020" filter="url(#holdGlow)"/>
+        <ellipse cx="1415" cy="115" rx="5" ry="3" fill="#FF8888" opacity="0.5"/>
+      </g>
+      <g class="hold hold-cream">
+        <ellipse cx="1320" cy="680" rx="13" ry="8" fill="#0d0500" opacity="0.6"/>
+        <ellipse cx="1318" cy="678" rx="11" ry="7" fill="#D4C4AC" filter="url(#holdGlow)"/>
+        <ellipse cx="1315" cy="675" rx="4" ry="3" fill="#FFF9F0" opacity="0.6"/>
+      </g>
+      <g class="hold hold-cream hold-bright">
+        <ellipse cx="1220" cy="460" rx="15" ry="9" fill="#0d0500" opacity="0.6"/>
+        <ellipse cx="1218" cy="458" rx="13" ry="8" fill="#E8D8C0" filter="url(#holdGlowBright)"/>
+        <ellipse cx="1215" cy="454" rx="5" ry="3" fill="#FFFAF5" opacity="0.7"/>
+      </g>
+      <g class="hold hold-cream">
+        <ellipse cx="1365" cy="250" rx="13" ry="8" fill="#0d0500" opacity="0.6"/>
+        <ellipse cx="1363" cy="248" rx="11" ry="7" fill="#CCC0A8" filter="url(#holdGlow)"/>
+        <ellipse cx="1360" cy="245" rx="4" ry="3" fill="#FFF9F0" opacity="0.6"/>
+      </g>
+
+      <!-- GLOW HALOS -->
+      <circle cx="193" cy="353" r="26" fill="#FF8243" opacity="0.07" class="hold-pulse"/>
+      <circle cx="1398" cy="518" r="28" fill="#A31919" opacity="0.07" class="hold-pulse"/>
+      <circle cx="1218" cy="458" r="24" fill="#E8D8C0" opacity="0.08" class="hold-pulse"/>
+
+      <!-- VIGNETTE -->
+      <rect width="1440" height="900" fill="url(#vignette)"/>
+      <rect width="1440" height="900" fill="url(#centerDarken)"/>
+    </svg>
+  </div>
+
+  <!-- ===== MOBILE Wall Scene — wide dramatic panels, no climber ===== -->
+  <div id="hero-wall-scene-mobile" class="wall-mobile">
+    <svg viewBox="0 0 390 844" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;">
+      <defs>
+        <linearGradient id="mbgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#060001;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="mPanelL" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#200b00;stop-opacity:1" />
+          <stop offset="60%" style="stop-color:#130600;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#080300;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="mPanelR" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#1e0900;stop-opacity:1" />
+          <stop offset="60%" style="stop-color:#110500;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#060200;stop-opacity:1" />
+        </linearGradient>
+        <!-- Subtle orange accent wash on inner edges -->
+        <linearGradient id="mAccL" x1="100%" y1="0%" x2="0%" y2="0%">
+          <stop offset="0%" style="stop-color:#FF8243;stop-opacity:0.07" />
+          <stop offset="100%" style="stop-color:#FF8243;stop-opacity:0" />
+        </linearGradient>
+        <linearGradient id="mAccR" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#A31919;stop-opacity:0.07" />
+          <stop offset="100%" style="stop-color:#A31919;stop-opacity:0" />
+        </linearGradient>
+        <filter id="mHoldGlow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="3.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="mHoldGlowBright" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="7" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="mEdgeGlow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="mRopeGlow">
+          <feGaussianBlur stdDeviation="2.5" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <radialGradient id="mVignette" cx="50%" cy="50%" r="70%">
+          <stop offset="0%" style="stop-color:#000000;stop-opacity:0" />
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:0.9" />
+        </radialGradient>
+        <radialGradient id="mCenterDark" cx="50%" cy="46%" r="36%">
+          <stop offset="0%" style="stop-color:#000000;stop-opacity:0.65" />
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+        </radialGradient>
+        <pattern id="mGrid" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="50" y2="0" stroke="#FF8243" stroke-width="0.45" stroke-opacity="0.12"/>
+          <line x1="0" y1="50" x2="50" y2="50" stroke="#FF8243" stroke-width="0.45" stroke-opacity="0.12"/>
+          <line x1="0" y1="0" x2="0" y2="50" stroke="#FF8243" stroke-width="0.45" stroke-opacity="0.12"/>
+          <line x1="50" y1="0" x2="50" y2="50" stroke="#FF8243" stroke-width="0.45" stroke-opacity="0.12"/>
+          <line x1="25" y1="0" x2="25" y2="50" stroke="#FF8243" stroke-width="0.2" stroke-opacity="0.06"/>
+          <line x1="0" y1="25" x2="50" y2="25" stroke="#FF8243" stroke-width="0.2" stroke-opacity="0.06"/>
+        </pattern>
+        <pattern id="mCracks" x="0" y="0" width="300" height="500" patternUnits="userSpaceOnUse">
+          <path d="M18,0 L28,90 L12,200 L32,350" stroke="#FF8243" stroke-width="0.6" stroke-opacity="0.07" fill="none"/>
+          <path d="M140,40 L128,160 L148,290" stroke="#A31919" stroke-width="0.5" stroke-opacity="0.05" fill="none"/>
+          <path d="M270,80 L258,190 L278,330 L262,450" stroke="#FF8243" stroke-width="0.5" stroke-opacity="0.06" fill="none"/>
+        </pattern>
+      </defs>
+
+      <!-- Background -->
+      <rect width="390" height="844" fill="url(#mbgGrad)"/>
+
+      <!-- ══ LEFT WALL PANEL — wide, dramatic ══ -->
+      <!-- Main fill: 0–108px at bottom, 0–88px at top -->
+      <polygon points="0,844 108,844 88,0 0,0" fill="url(#mPanelL)" opacity="0.97"/>
+      <polygon points="0,844 108,844 88,0 0,0" fill="url(#mGrid)"/>
+      <polygon points="0,844 108,844 88,0 0,0" fill="url(#mCracks)" opacity="0.85"/>
+      <!-- Inner accent wash near right edge -->
+      <polygon points="60,844 108,844 88,0 48,0" fill="url(#mAccL)"/>
+      <!-- Right edge glowing line -->
+      <line x1="108" y1="844" x2="88" y2="0" stroke="#FF8243" stroke-width="2" stroke-opacity="0.45" filter="url(#mEdgeGlow)"/>
+      <line x1="108" y1="844" x2="88" y2="0" stroke="#FF8243" stroke-width="0.7" stroke-opacity="0.9"/>
+      <!-- Depth shadow -->
+      <polygon points="108,844 124,844 104,0 88,0" fill="#000" opacity="0.42"/>
+      <!-- Structural horizontal lines — left panel -->
+      <g opacity="0.18" stroke="#FF8243" stroke-width="0.8">
+        <line x1="0" y1="160" x2="102" y2="145"/>
+        <line x1="0" y1="320" x2="102" y2="302"/>
+        <line x1="0" y1="480" x2="102" y2="458"/>
+        <line x1="0" y1="640" x2="102" y2="616"/>
+        <line x1="0" y1="780" x2="102" y2="754"/>
+      </g>
+      <!-- Small bolt details on left panel -->
+      <circle cx="20" cy="200" r="2.5" fill="#666" opacity="0.5"/>
+      <circle cx="65" cy="380" r="2.5" fill="#666" opacity="0.5"/>
+      <circle cx="25" cy="560" r="2.5" fill="#666" opacity="0.45"/>
+      <circle cx="72" cy="700" r="2.5" fill="#666" opacity="0.4"/>
+
+      <!-- ══ RIGHT WALL PANEL — wide, dramatic ══ -->
+      <!-- Main fill: 282–390px at bottom, 302–390px at top -->
+      <polygon points="282,844 390,844 390,0 302,0" fill="url(#mPanelR)" opacity="0.93"/>
+      <polygon points="282,844 390,844 390,0 302,0" fill="url(#mGrid)"/>
+      <polygon points="282,844 390,844 390,0 302,0" fill="url(#mCracks)" opacity="0.75"/>
+      <!-- Inner accent wash near left edge -->
+      <polygon points="282,844 330,844 350,0 302,0" fill="url(#mAccR)"/>
+      <!-- Left edge glowing line -->
+      <line x1="282" y1="844" x2="302" y2="0" stroke="#FF8243" stroke-width="1.6" stroke-opacity="0.38" filter="url(#mEdgeGlow)"/>
+      <line x1="282" y1="844" x2="302" y2="0" stroke="#FF8243" stroke-width="0.6" stroke-opacity="0.75"/>
+      <!-- Depth shadow on right panel -->
+      <polygon points="266,844 282,844 302,0 286,0" fill="#000" opacity="0.38"/>
+      <!-- Structural horizontal lines — right panel -->
+      <g opacity="0.15" stroke="#FF8243" stroke-width="0.8">
+        <line x1="288" y1="160" x2="390" y2="148"/>
+        <line x1="288" y1="320" x2="390" y2="305"/>
+        <line x1="288" y1="480" x2="390" y2="462"/>
+        <line x1="288" y1="640" x2="390" y2="620"/>
+        <line x1="288" y1="780" x2="390" y2="758"/>
+      </g>
+      <!-- Small bolt details on right panel -->
+      <circle cx="370" cy="200" r="2.5" fill="#666" opacity="0.5"/>
+      <circle cx="325" cy="380" r="2.5" fill="#666" opacity="0.5"/>
+      <circle cx="365" cy="560" r="2.5" fill="#666" opacity="0.45"/>
+      <circle cx="318" cy="700" r="2.5" fill="#666" opacity="0.4"/>
+
+      <!-- TOP OVERHANG BAR — full width -->
+      <polygon points="0,0 390,0 390,44 0,58" fill="#090200" opacity="0.98"/>
+      <line x1="0" y1="58" x2="390" y2="44" stroke="#FF8243" stroke-width="2.2" stroke-opacity="0.55"/>
+      <!-- Subtle second line for depth -->
+      <line x1="0" y1="61" x2="390" y2="47" stroke="#FF8243" stroke-width="0.6" stroke-opacity="0.15"/>
+
+      <!-- Anchor bolt — top of left rope -->
+      <circle cx="56" cy="52" r="6" fill="#888" opacity="0.85"/>
+      <circle cx="54" cy="52" r="3" fill="#CCCCCC" opacity="0.7"/>
+      <rect x="44" y="45" width="22" height="8" rx="3" fill="#666" opacity="0.8"/>
+
+      <!-- ══ LEFT ROPE — orange glow ══ -->
+      <g filter="url(#mRopeGlow)">
+        <path id="m-rope-path"
+              d="M56,48 C55,200 57,380 56,462"
+              stroke="#E8D5C0" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.88"/>
+        <path id="m-rope-path-glow"
+              d="M56,48 C55,200 57,380 56,462"
+              stroke="#FF8243" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.45"/>
+        <circle cx="56" cy="46" r="7" fill="#A31919" opacity="0.95"/>
+        <circle cx="56" cy="46" r="3.5" fill="#FF8243"/>
+      </g>
+
+      <!-- ══ MOBILE CLIMBER FIGURE — positioned on left rope ══ -->
+      <g id="mobile-climber" opacity="0.92">
+        <!-- Shadow -->
+        <ellipse cx="72" cy="490" rx="18" ry="5" fill="#000" opacity="0.2"/>
+        <!-- Helmet -->
+        <ellipse cx="56" cy="415" rx="13" ry="9" fill="#FF8243"/>
+        <rect x="43" y="420" width="26" height="6" rx="3" fill="#CC5500"/>
+        <!-- Head -->
+        <circle cx="56" cy="431" r="11" fill="#F0C090"/>
+        <ellipse cx="52" cy="428" rx="2" ry="1.8" fill="#3A2010"/>
+        <ellipse cx="60" cy="428" rx="2" ry="1.8" fill="#3A2010"/>
+        <!-- Torso -->
+        <path d="M44,441 Q48,438 56,437 Q64,438 68,441 L69,465 Q63,468 56,469 Q49,468 43,465 Z" fill="#1E0800"/>
+        <!-- Harness -->
+        <path d="M44,447 L39,461 L73,461 L68,447" stroke="#FF8243" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <line x1="56" y1="447" x2="56" y2="461" stroke="#FF8243" stroke-width="1.8" stroke-linecap="round"/>
+        <ellipse cx="56" cy="464" rx="6" ry="4" fill="#888" opacity="0.9"/>
+        <ellipse cx="56" cy="464" rx="3.5" ry="2.5" fill="#555"/>
+        <!-- Rope connection -->
+        <line x1="56" y1="458" x2="56" y2="462" stroke="#E8D5C0" stroke-width="2"/>
+        <!-- LEFT ARM reaching up to hold -->
+        <line x1="44" y1="446" x2="28" y2="428" stroke="#F0C090" stroke-width="6" stroke-linecap="round"/>
+        <line x1="28" y1="428" x2="18" y2="418" stroke="#F0C090" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="17" cy="416" r="5.5" fill="#F0C090"/>
+        <!-- RIGHT ARM -->
+        <line x1="68" y1="446" x2="84" y2="438" stroke="#F0C090" stroke-width="6" stroke-linecap="round"/>
+        <line x1="84" y1="438" x2="94" y2="432" stroke="#F0C090" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="95" cy="430" r="5" fill="#F0C090"/>
+        <!-- LEFT LEG -->
+        <line x1="48" y1="468" x2="34" y2="495" stroke="#1E0800" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="31" cy="498" rx="10" ry="5" fill="#222" transform="rotate(-20,31,498)"/>
+        <ellipse cx="29" cy="496" rx="4" ry="2.5" fill="#FF8243" opacity="0.7" transform="rotate(-20,29,496)"/>
+        <!-- RIGHT LEG -->
+        <line x1="64" y1="468" x2="76" y2="492" stroke="#1E0800" stroke-width="7" stroke-linecap="round"/>
+        <ellipse cx="79" cy="496" rx="10" ry="5" fill="#222" transform="rotate(20,79,496)"/>
+        <ellipse cx="81" cy="494" rx="4" ry="2.5" fill="#FF8243" opacity="0.7" transform="rotate(20,81,494)"/>
+        <!-- Chalk bag -->
+        <ellipse cx="70" cy="452" rx="7" ry="5.5" fill="#EEE8DC" opacity="0.35"/>
+      </g>
+
+      <!-- ══ LEFT PANEL HOLDS — orange route, generous & well-spaced ══ -->
+      <g>
+        <ellipse cx="85" cy="788" rx="14" ry="9" fill="#0d0400" opacity="0.7"/>
+        <ellipse cx="83" cy="786" rx="12" ry="7" fill="#FF8243" filter="url(#mHoldGlow)"/>
+        <ellipse cx="80" cy="783" rx="5" ry="3" fill="#FFB870" opacity="0.75"/>
+      </g>
+      <g>
+        <ellipse cx="30" cy="715" rx="12" ry="7" fill="#0d0400" opacity="0.65"/>
+        <ellipse cx="28" cy="713" rx="10" ry="6" fill="#FF7B20" filter="url(#mHoldGlow)"/>
+        <ellipse cx="26" cy="711" rx="4" ry="2.5" fill="#FFB870" opacity="0.6"/>
+      </g>
+      <g>
+        <ellipse cx="90" cy="638" rx="15" ry="10" fill="#0d0400" opacity="0.72"/>
+        <ellipse cx="88" cy="636" rx="13" ry="8" fill="#FF8243" filter="url(#mHoldGlowBright)"/>
+        <ellipse cx="85" cy="633" rx="5" ry="3" fill="#FFCB99" opacity="0.85"/>
+      </g>
+      <g>
+        <ellipse cx="25" cy="558" rx="13" ry="8" fill="#0d0400" opacity="0.65"/>
+        <ellipse cx="23" cy="556" rx="11" ry="7" fill="#CC5500" filter="url(#mHoldGlow)"/>
+        <ellipse cx="21" cy="554" rx="4" ry="2.5" fill="#FFB870" opacity="0.6"/>
+      </g>
+      <g>
+        <ellipse cx="82" cy="472" rx="14" ry="9" fill="#0d0400" opacity="0.7"/>
+        <ellipse cx="80" cy="470" rx="12" ry="7" fill="#FF8243" filter="url(#mHoldGlow)"/>
+        <ellipse cx="77" cy="467" rx="5" ry="3" fill="#FFB870" opacity="0.7"/>
+      </g>
+      <g>
+        <ellipse cx="32" cy="385" rx="12" ry="7" fill="#0d0400" opacity="0.65"/>
+        <ellipse cx="30" cy="383" rx="10" ry="6" fill="#FF7B20" filter="url(#mHoldGlow)"/>
+        <ellipse cx="28" cy="381" rx="4" ry="2.5" fill="#FFB870" opacity="0.55"/>
+      </g>
+      <g>
+        <ellipse cx="88" cy="295" rx="15" ry="9" fill="#0d0400" opacity="0.72"/>
+        <ellipse cx="86" cy="293" rx="13" ry="7" fill="#FF8243" filter="url(#mHoldGlowBright)"/>
+        <ellipse cx="83" cy="290" rx="5" ry="3" fill="#FFCB99" opacity="0.85"/>
+      </g>
+      <g>
+        <ellipse cx="24" cy="210" rx="12" ry="7" fill="#0d0400" opacity="0.65"/>
+        <ellipse cx="22" cy="208" rx="10" ry="6" fill="#FF7B20" filter="url(#mHoldGlow)"/>
+      </g>
+      <g>
+        <ellipse cx="80" cy="132" rx="14" ry="9" fill="#0d0400" opacity="0.7"/>
+        <ellipse cx="78" cy="130" rx="12" ry="7" fill="#FF8243" filter="url(#mHoldGlow)"/>
+        <ellipse cx="75" cy="127" rx="5" ry="3" fill="#FFB870" opacity="0.65"/>
+      </g>
+      <g>
+        <ellipse cx="30" cy="68" rx="12" ry="7" fill="#0d0400" opacity="0.65"/>
+        <ellipse cx="28" cy="66" rx="10" ry="6" fill="#CC5500" filter="url(#mHoldGlow)"/>
+      </g>
+
+      <!-- ══ RIGHT PANEL HOLDS — crimson route ══ -->
+      <g>
+        <ellipse cx="305" cy="795" rx="13" ry="8" fill="#0d0000" opacity="0.7"/>
+        <ellipse cx="303" cy="793" rx="11" ry="7" fill="#A31919" filter="url(#mHoldGlow)"/>
+        <ellipse cx="301" cy="791" rx="4.5" ry="2.5" fill="#FF9999" opacity="0.6"/>
+      </g>
+      <g>
+        <ellipse cx="368" cy="718" rx="14" ry="9" fill="#0d0000" opacity="0.65"/>
+        <ellipse cx="366" cy="716" rx="12" ry="7" fill="#B82020" filter="url(#mHoldGlow)"/>
+        <ellipse cx="363" cy="713" rx="5" ry="3" fill="#FF8888" opacity="0.55"/>
+      </g>
+      <g>
+        <ellipse cx="300" cy="638" rx="14" ry="9" fill="#0d0000" opacity="0.72"/>
+        <ellipse cx="298" cy="636" rx="12" ry="7" fill="#C41E1E" filter="url(#mHoldGlowBright)"/>
+        <ellipse cx="295" cy="633" rx="5" ry="3" fill="#FF9999" opacity="0.75"/>
+      </g>
+      <g>
+        <ellipse cx="370" cy="555" rx="15" ry="9" fill="#0d0000" opacity="0.65"/>
+        <ellipse cx="368" cy="553" rx="13" ry="7" fill="#A31919" filter="url(#mHoldGlow)"/>
+        <ellipse cx="365" cy="550" rx="5" ry="3" fill="#FF8888" opacity="0.55"/>
+      </g>
+      <g>
+        <ellipse cx="305" cy="465" rx="14" ry="9" fill="#0d0000" opacity="0.7"/>
+        <ellipse cx="303" cy="463" rx="12" ry="7" fill="#B82020" filter="url(#mHoldGlow)"/>
+        <ellipse cx="300" cy="460" rx="5" ry="3" fill="#FF9999" opacity="0.65"/>
+      </g>
+      <g>
+        <ellipse cx="365" cy="378" rx="13" ry="8" fill="#0d0000" opacity="0.65"/>
+        <ellipse cx="363" cy="376" rx="11" ry="6" fill="#A31919" filter="url(#mHoldGlow)"/>
+      </g>
+      <g>
+        <ellipse cx="302" cy="290" rx="15" ry="9" fill="#0d0000" opacity="0.72"/>
+        <ellipse cx="300" cy="288" rx="13" ry="7" fill="#C41E1E" filter="url(#mHoldGlowBright)"/>
+        <ellipse cx="297" cy="285" rx="5" ry="3" fill="#FF9999" opacity="0.75"/>
+      </g>
+      <g>
+        <ellipse cx="368" cy="208" rx="13" ry="8" fill="#0d0000" opacity="0.65"/>
+        <ellipse cx="366" cy="206" rx="11" ry="6" fill="#B82020" filter="url(#mHoldGlow)"/>
+      </g>
+      <g>
+        <ellipse cx="305" cy="128" rx="14" ry="9" fill="#0d0000" opacity="0.7"/>
+        <ellipse cx="303" cy="126" rx="12" ry="7" fill="#A31919" filter="url(#mHoldGlow)"/>
+        <ellipse cx="300" cy="123" rx="5" ry="3" fill="#FF8888" opacity="0.6"/>
+      </g>
+      <g>
+        <ellipse cx="362" cy="68" rx="13" ry="8" fill="#0d0000" opacity="0.65"/>
+        <ellipse cx="360" cy="66" rx="11" ry="6" fill="#B82020" filter="url(#mHoldGlow)"/>
+      </g>
+
+      <!-- Glow halos for hero holds -->
+      <circle cx="88" cy="636" r="24" fill="#FF8243" opacity="0.06" class="hold-pulse"/>
+      <circle cx="86" cy="293" r="22" fill="#FF8243" opacity="0.06" class="hold-pulse"/>
+      <circle cx="298" cy="636" r="23" fill="#C41E1E" opacity="0.07" class="hold-pulse"/>
+      <circle cx="300" cy="288" r="22" fill="#C41E1E" opacity="0.06" class="hold-pulse"/>
+
+      <!-- VIGNETTE + CENTER PROTECTION -->
+      <rect width="390" height="844" fill="url(#mVignette)"/>
+      <rect width="390" height="844" fill="url(#mCenterDark)"/>
+    </svg>
+  </div>
+
+  <div id="hero-pattern"></div>
+  <div id="hero-content">
+    <div id="hero-badge">أول صالة في سوريا</div>
+    <h1 data-serif id="hero-title">اكتشف جبلنا</h1>
+    <p class="subtitle-en">Jabalna Climbing</p>
+    <p class="subtitle-tag">ارقَ إلى القمة</p>
+    <div class="hero-cta-group">
+      <a href="#pricing-section" class="hero-btn-primary">اشترك الآن</a>
+      <a href="#timeline-section" class="hero-btn-secondary">قصتنا</a>
+    </div>
+    <div class="scroll-hint">
+      <span>ابدأ رحلتك</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </div>
+  <div id="hero-bottom-fade"></div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing-section">
+  <div class="pricing-header"><h2 data-serif>الأسعار</h2><p>الباقات والاشتراكات</p><div class="pricing-note">✅ كل الاشتراكات والدخوليات تتضمن إيجار بوط التسلق</div></div>
+  <div class="pricing-grid">
+    <div class="pricing-card"><div class="pricing-card-title-ar" style="font-size:1.25rem; font-weight:700;">دخولية</div><div class="pricing-card-title-en" style="opacity:0.7;">تذكرة دخول</div><div class="price-row"><div class="price-country">🇸🇾 سوري</div><div class="price-amount">١٬٠٠٠ <span style="font-size:0.75rem;">ل.س</span></div></div><div class="price-row"><div class="price-country">🌍 أجنبي</div><div class="price-amount">١٬٥٠٠ <span style="font-size:0.75rem;">ل.س</span></div></div></div>
+    <div class="pricing-card"><div class="pricing-card-title-ar" style="font-size:1.25rem; font-weight:700;">٥ دخوليات</div><div class="pricing-card-title-en" style="opacity:0.7;">باقة 5 دخول</div><div class="price-row"><div class="price-country">🇸🇾 سوري</div><div class="price-amount">٤٬٢٠٠ <span style="font-size:0.75rem;">ل.س</span></div></div><div class="price-row"><div class="price-country">🌍 أجنبي</div><div class="price-amount">٦٬٣٠٠ <span style="font-size:0.75rem;">ل.س</span></div></div></div>
+    <div class="pricing-card"><div class="pricing-card-title-ar" style="font-size:1.25rem; font-weight:700;">شهري</div><div class="pricing-card-title-en" style="opacity:0.7;">اشتراك شهري</div><div class="price-row"><div class="price-country">🇸🇾 سوري</div><div class="price-amount">٧٬٥٠٠ <span style="font-size:0.75rem;">ل.س</span></div></div><div class="price-row"><div class="price-country">🌍 أجنبي</div><div class="price-amount">٥٬٠٠٠ <span style="font-size:0.75rem;">ل.س</span></div></div></div>
+    <div class="pricing-card"><div class="pricing-card-title-ar" style="font-size:1.25rem; font-weight:700;">شهري</div><div class="pricing-card-title-en" style="opacity:0.7;">أوقات السيدات فقط</div><div class="price-row"><div class="price-country">🇸🇾 سوري</div><div class="price-amount">٣٬٥٠٠ <span style="font-size:0.75rem;">ل.س</span></div></div><div class="price-row"><div class="price-country">🌍 أجنبي</div><div class="price-amount">٥٬٢٥٠ <span style="font-size:0.75rem;">ل.س</span></div></div><div class="pricing-perks" style="margin-top:0.5rem; font-size:0.8rem;"></div></div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section id="hours-section">
+  <div class="hours-header"><h2 data-serif>أوقات العمل</h2><p>مواعيد الزيارة</p></div>
+  <div class="hours-wrap">
+    <div class="hours-card"><div class="hours-card-title" style="font-weight:700;">ساعات العمل العادية</div><div class="hours-row"><span>السبت – الخميس</span><span>٤:٠٠ – ١٠:٠٠ مساءً</span></div><div class="hours-row"><span>الجمعة</span><span class="closed-cell">مغلق</span></div></div>
+    <div class="hours-card"><div class="hours-card-title" style="font-weight:700;">ساعات خاصة للنساء 👩</div><div class="hours-row"><span>الثلاثاء والخميس</span><span>٤:٠٠ – ٦:٠٠ مساءً</span></div><div class="hours-row"><span>الأيام الأخرى</span><span>٧:٠٠ – ١٠:٠٠ مساءً</span></div></div>
+  </div>
+  <div class="club-table-container">
+  <table class="club-table">
+    <thead>
+      <tr><th>اليوم</th><th>للكبار (+١٥)</th><th>لليافعين (١٢–١٤)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="day-cell">السبت</td>
+        <td class="time-cell">٤ – ١٠</td>
+        <td class="time-cell">٤ – ٧</td>
+      </tr>
+      <tr class="ladies-row">
+        <td class="day-cell">الأحد</td>
+        <td colspan="2" class="time-cell" style="text-align: center;">٤ – ١٠ (للبنات فقط)</td>
+      </tr>
+      <tr>
+        <td class="day-cell">الاثنين</td>
+        <td class="time-cell">٤ – ١٠</td>
+        <td class="time-cell">٤ – ٧</td>
+      </tr>
+      <tr>
+        <td class="day-cell">الثلاثاء</td>
+        <td class="time-cell">٤ – ١٠</td>
+        <td class="time-cell">٤ – ٧</td>
+      </tr>
+      <tr class="ladies-row">
+        <td class="day-cell">الأربعاء</td>
+        <td colspan="2" class="time-cell" style="text-align: center;">٤ – ١٠ (للبنات فقط)</td>
+      </tr>
+      <tr>
+        <td class="day-cell">الخميس</td>
+        <td class="time-cell">٤ – ١٠</td>
+        <td class="time-cell">٤ – ٧</td>
+      </tr>
+      <tr>
+        <td class="day-cell">الجمعة</td>
+        <td colspan="2" class="closed-cell">مغلق</td>
+      </tr>
+    </tbody>
+  </table>
+</div>  
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline-section">
+  <div class="timeline-header"><h2 data-serif>قصتنا</h2><p>رحلتنا نحو القمة</p></div>
+  <div class="timeline-wrap">
+    <div class="timeline-line"></div>
+    <div class="timeline-events">
+      <div class="timeline-item right">
+        <div class="tl-content"><div class="tl-content-card"><div class="tl-year-desktop">💡 ٢٠٢٤</div><h3 class="tl-title-ar" data-serif>الفكرة الأولى</h3><p class="tl-desc">بدأت فكرة جبلنا من حب عميق للتسلق والرغبة في نشر هذه الرياضة الرائعة في سوريا. رؤيتنا كانت واضحة: إنشاء أول صالة تسلق داخلية احترافية.</p></div></div>
+        <div class="tl-image"><div class="tl-img-wrap"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080" alt="الفكرة" /></div></div>
+      </div>
+      <div class="timeline-item left">
+        <div class="tl-content"><div class="tl-content-card"><div class="tl-year-desktop">🏗️ ٢٠٢٤</div><h3 class="tl-title-ar" data-serif>البناء والتطوير</h3><p class="tl-desc">بدأنا بناء الصالة بأحدث المعدات والتقنيات. استقدمنا متخصصين دوليين لتصميم جدران التسلق وتجهيز المساحات بأعلى معايير الأمان.</p></div></div>
+        <div class="tl-image"><div class="tl-img-wrap"><img src="1.png" alt="البناء" /></div></div>
+      </div>
+      <div class="timeline-item right">
+        <div class="tl-content"><div class="tl-content-card"><div class="tl-year-desktop">🎉 ٨ يناير ٢٠٢٥</div><h3 class="tl-title-ar" data-serif>الافتتاح الرسمي</h3><p class="tl-desc">أول صالة تسلق داخلية في سوريا تفتح أبوابها. جبلنا للتسلق — للجميع، لكل الأعمار، لكل المستويات.</p></div></div>
+        <div class="tl-image"><div class="tl-img-wrap"><img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixlib=rb-4.1.0&q=80&w=1080" alt="الافتتاح" /></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GYM SECTION -->
+<section id="gym-section">
+  <div class="gym-header"><h2 data-serif>زورونا</h2><p>تفاصيل الاتصال والموقع</p></div>
+  <div id="gym-grid">
+    <div id="gym-img-wrap"><img src="https://images.unsplash.com/photo-1675448057779-5461731e6b0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRvb3IlMjBjbGltYmluZyUyMGd5bSUyMGJvdWxkZXJpbmd8ZW58MXx8fHwxNzc0NDUzNDc1fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="صالة جبلنا" /></div>
+    <div id="gym-contact">
+      <div class="contact-card"><div class="contact-icon">📍</div><div><div class="contact-label">الموقع</div><div>دمشق، سوريا</div><div>Damascus, Syria</div></div></div>
+      <div class="contact-card"><div class="contact-icon">🕒</div><div><div class="contact-label">ساعات العمل</div><div>السبت – الخميس: ٤ – ١٠ مساءً</div><div>الجمعة: مغلق</div></div></div>
+      <div class="contact-card"><div class="contact-icon">📞</div><div><div class="contact-label">الهاتف</div><div>+963 11 XXX XXXX</div></div></div>
+    </div>
+  </div>
+  
+</section>
+
+<footer>
+  <h3 data-serif>جبلنا للتسلق</h3>
+  <p>أول صالة تسلق داخلية في سوريا • دمشق، سوريا</p>
+  <p class="footer-copy">© ٢٠٢٥ جبلنا للتسلق. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+    }
+  }
+</script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
